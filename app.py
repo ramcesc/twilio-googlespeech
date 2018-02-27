@@ -33,21 +33,22 @@ def command():
 
     if 'SpeechResult' in request.values:
         choice = request.values['SpeechResult']
+        print(choice)
 
         if choice == 'coconutt' or 'coconut':
             resp.play('https://storage.googleapis.com/coconutt-voz/coconutt.mp3')
             return str(resp)
-        elif choice == 'chatbots' or 'chatbot':
+        elif choice == 'bots' or 'bot':
             resp.play('https://storage.googleapis.com/coconutt-voz/chatbot.mp3')
             return str(resp)
         else:
             resp.say('No te he entendido, te repito las opciones', language='es-MX')
 
-    resp.redirect('/')
+    resp.redirect('/welcome')
 
     return(str(resp))
 
 if __name__ == "__main__":
-    application.run()
+    application.run(debug=True)
 
 
